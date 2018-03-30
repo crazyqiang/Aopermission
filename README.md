@@ -26,25 +26,21 @@ dependencies {
 说明：**aspectjx:1.0.8不是最新版本，最高支持gradle的版本到2.3.3，如果你的工程里gradle版本是3.0.0以上，请使用aspectjx：1.1.0以上版本，aspectjx历史版本查看地址：**
 https://github.com/HujiangTechnology/gradle_plugin_android_aspectjx/blob/master/CHANGELOG.md
 
-3、需要在AOP代码进行hook的类及方法名不能被混淆,需要在混淆配置里keep住, 比如:
+3、被@NeedPermission注解作用的类及方法名不能被混淆,需要在混淆配置里keep住, 比如:
 ```
 package com.hujiang.test;
 
 public class A {
+    @NeedPermission
     public boolean funcA(String args) {
         ....
     }
 }
 
-//如果你在AOP代码里对A#funcA(String)进行hook, 那么在混淆配置文件里加上这样的配置
-
--keep class com.hujiang.test.A {*;}
+-keep class com.hujiang.test {*;}
 ```
-4、终于配好了，都闪开，我要开始举栗子了：
-![举栗子.jpg](https://upload-images.jianshu.io/upload_images/587163-708162abf2b0da37.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-下面以Activity中申请权限为例，Fragment、Service中使用是一样的，就不一一写了，源码中也有相应使用的Demo
 
-###  4.1 申请单个权限
+## 申请单个权限
 申请单个权限：
 ```
 btn_click.setOnClickListener(new View.OnClickListener() {
@@ -103,3 +99,6 @@ public void callPhone() {
 }
 ```
 value中声明了两个权限，一个电话权限，一个相机权限
+
+## Thanks To
+https://github.com/HujiangTechnology/gradle_plugin_android_aspectjx
