@@ -3,6 +3,8 @@ A library that request Permissions in an AOP manner.
 
 BLOG地址：https://blog.csdn.net/u013700502/article/details/79748829
 
+![运行效果图.gif](https://upload-images.jianshu.io/upload_images/587163-78cf7c69a1e04c66.gif?imageMogr2/auto-orient/strip)
+
 # How to use
 1、权限库引入方式，在app模块的build.gradle中引入如下：
 ```
