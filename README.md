@@ -86,7 +86,7 @@ public void dealPermission(DenyBean bean) {
 ```
 声明一个public方法接收权限被取消的回调，**方法必须有一个DenyBean类型的参数**，DenyBean中有一个requestCode变量，即是我们请求权限时的请求码，另外还可以通过denyBean.getDenyList()来拿到被权限被拒绝的List。
 
-###  4.2 申请多个权限
+## 申请多个权限
 
 基本用法同上，区别是@NeedPermission后面声明的权限是多个，如下：
 ```
