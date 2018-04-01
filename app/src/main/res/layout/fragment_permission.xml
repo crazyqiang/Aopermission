@@ -1,9 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal"
-    tools:context="com.ninetripods.mq.aopermission.PermissionFragment">
+    android:gravity="center_horizontal">
 
     <Button
         android:id="@+id/btn_permission"

@@ -61,11 +61,6 @@ public class PermissionAspect {
 
                     @Override
                     public void PermissionDenied(int requestCode, List<String> denyList) {
-//                        if (object instanceof IPermissionCallBack) {
-//                            IPermissionCallBack callBack = ((IPermissionCallBack) object);
-//                            callBack.deniedCallBack(requestCode, denyList);
-//                        }
-
                         Class<?> cls = object.getClass();
                         Method[] methods = cls.getDeclaredMethods();
                         if (methods == null || methods.length == 0) return;
@@ -123,13 +118,8 @@ public class PermissionAspect {
                                 }
                             }
                         }
-//                        if (object instanceof IPermissionCallBack) {
-//                            IPermissionCallBack callBack = ((IPermissionCallBack) object);
-//                            callBack.canceledCallBack(requestCode);
-//                        }
                     }
                 });
-
     }
 
 }
