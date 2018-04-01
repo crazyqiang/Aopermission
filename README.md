@@ -11,7 +11,7 @@ BLOG地址：https://blog.csdn.net/u013700502/article/details/79748829
 apply plugin: 'android-aspectjx'
 
 dependencies {
-     
+     compile 'com.ninetripods:aop-permission:1.0.1'
      ..........其他............
 }
 ```
