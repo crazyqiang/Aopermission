@@ -8,6 +8,10 @@ BLOG地址：https://blog.csdn.net/u013700502/article/details/79748829
 ![downloadQR.png](https://upload-images.jianshu.io/upload_images/587163-406bfe5d806d0b63.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 扫描二维码或[点此下载APK](https://www.pgyer.com/6ThQ)：
 
+# 整体流程
+
+![UML时序图.png](https://upload-images.jianshu.io/upload_images/587163-2e0308c1dc5faaab.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 # How to use
 1、权限库引入方式，在app模块的build.gradle中引入如下：
 ```
