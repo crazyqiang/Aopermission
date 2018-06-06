@@ -72,6 +72,7 @@ public class PermissionRequestActivity extends Activity {
             //all permissions granted
             if (permissionListener != null) {
                 permissionListener.PermissionGranted();
+                permissionListener=null;
             }
             finish();
             overridePendingTransition(0, 0);
@@ -110,6 +111,7 @@ public class PermissionRequestActivity extends Activity {
             }
 
         }
+        permissionListener=null;
         finish();
         overridePendingTransition(0, 0);
     }
