@@ -1,53 +1,65 @@
 # Aopermission
-A library that request Permissions in an AOP manner.
+#### AOP方式封装的6.0运行时申请权限的库—A library that request Permissions in an AOP manner.
 
-BLOG地址：https://blog.csdn.net/u013700502/article/details/79748829
+- BLOG地址：https://blog.csdn.net/u013700502/article/details/79748829
 
-点此查看效果图：https://upload-images.jianshu.io/upload_images/587163-78cf7c69a1e04c66.gif?imageMogr2/auto-orient/strip
+- 点此查看效果图：
+https://upload-images.jianshu.io/upload_images/587163-78cf7c69a1e04c66.gif?imageMogr2/auto-orient/strip
 
 ![downloadQR.png](https://upload-images.jianshu.io/upload_images/587163-406bfe5d806d0b63.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 扫描二维码或[点此下载APK](https://www.pgyer.com/6ThQ)：
 
-# UML Sequence Chart
+# UML Sequence Chart(UML时序图)
 
 ![UML时序图.png](https://upload-images.jianshu.io/upload_images/587163-2e0308c1dc5faaab.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 # How to use
-1、权限库引入方式，在app模块的build.gradle中引入如下：
+
+## 一、配置
+1、权限库引入方式，在**app模块的build.gradle**中引入如下：
 ```
 apply plugin: 'android-aspectjx'
 
 dependencies {
-     compile 'com.ninetripods:aop-permission:1.0.1'
+     compile 'com.ninetripods:aop-permission:1.1.0'
      ..........其他............
 }
+
+//可选配置：include和exclude的规则是去匹配包名，如果找到匹配的包名，则整个jar(即整个库)生效，
+//这样做主要是考虑到性能的问题。include和exclude在功能上是没有问题的。
+aspectjx {
+    include 'com.ninetripods'
+}
+
 ```
-2、在整个工程的build.gradle里面配置如下：
+2、在**根目录的build.gradle**里面配置如下：
 ```
 dependencies {
-    classpath 'com.android.tools.build:gradle:2.3.3'
-    classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:1.0.8'
+    classpath 'com.android.tools.build:gradle:3.0.1'//替换你的gradle版本
+    classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:2.0.4'
     ................其他................
 }
 ```
-说明：**aspectjx:1.0.8不是最新版本，最高支持gradle的版本到2.3.3，如果你的工程里gradle版本是3.0.0以上，请使用aspectjx：1.1.0以上版本，aspectjx历史版本查看地址：**
+说明：**aspectjx:2.0.4目前是最新版本，aspectjx历史版本查看地址：**
 https://github.com/HujiangTechnology/gradle_plugin_android_aspectjx/blob/master/CHANGELOG.md
 
-3、被@NeedPermission注解作用的类及方法名不能被混淆,需要在混淆配置里keep住, 比如:
+3、本项目中在AOP类中用到了反射，如果你的项目中在混淆后导致权限申请失败，将下面的配置加到你的混淆配置中:
 ```
-package com.hujiang.test;
-
-public class A {
-    @NeedPermission
-    public boolean funcA(String args) {
-        ....
-    }
+-keepclasseswithmembers class * {
+    @com.suyun.permissionlib.annotation.NeedPermission <methods>;
 }
 
--keep class com.hujiang.test {*;}
+-keepclasseswithmembers class * {
+    @com.suyun.permissionlib.annotation.PermissionCanceled <methods>;
+}
+
+-keepclasseswithmembers class * {
+    @com.suyun.permissionlib.annotation.PermissionDenied <methods>;
+}
 ```
 
-## 申请单个权限
+## 二、使用举例
+### 1、申请单个权限
 申请单个权限：
 ```
 btn_click.setOnClickListener(new View.OnClickListener() {
@@ -87,13 +99,13 @@ public void dealCancelPermission(CancelBean bean) {
  */
 @PermissionDenied
 public void dealPermission(DenyBean bean) {
-        Toast.makeText(this, 
+        Toast.makeText(this,
         "requestCode:" + bean.getRequestCode()+ ",Permissions: " + Arrays.toString(bean.getDenyList().toArray()), Toast.LENGTH_SHORT).show();
   }
 ```
 声明一个public方法接收权限被取消的回调，**方法必须有一个DenyBean类型的参数**，DenyBean中有一个requestCode变量，即是我们请求权限时的请求码，另外还可以通过denyBean.getDenyList()来拿到被权限被拒绝的List。
 
-## 申请多个权限
+### 2、申请多个权限
 
 基本用法同上，区别是@NeedPermission后面声明的权限是多个，如下：
 ```
@@ -109,3 +121,4 @@ value中声明了两个权限，一个电话权限，一个相机权限
 
 ## Thanks To
 https://github.com/HujiangTechnology/gradle_plugin_android_aspectjx
+
