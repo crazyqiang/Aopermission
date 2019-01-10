@@ -21,12 +21,12 @@ https://upload-images.jianshu.io/upload_images/587163-78cf7c69a1e04c66.gif?image
 apply plugin: 'android-aspectjx'
 
 dependencies {
-     compile 'com.ninetripods:aop-permission:1.1.0'
+     compile 'com.ninetripods:aop-permission:1.0.1'
      ..........其他............
 }
 
 //可选配置：include和exclude的规则是去匹配包名，如果找到匹配的包名，则整个jar(即整个库)生效，
-//这样做主要是考虑到性能的问题。include和exclude在功能上是没有问题的。
+//这样做主要是考虑到性能的问题。
 aspectjx {
     include 'com.ninetripods'
 }
