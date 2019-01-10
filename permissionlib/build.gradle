@@ -3,7 +3,7 @@ apply plugin: 'com.novoda.bintray-release'//添加
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.0"
+    buildToolsVersion "26.0.3"
 
     defaultConfig {
         minSdkVersion 14
@@ -28,7 +28,7 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support:appcompat-v7:25.4.0'
     compile 'org.aspectj:aspectjrt:1.8.9'
 }
 
@@ -36,7 +36,7 @@ publish {
     userOrg = 'crazyqiang'//bintray.com用户名
     groupId = 'com.ninetripods'//jCenter上的路径
     artifactId = 'aop-permission'//项目名称
-    publishVersion = '1.0.1'//修改版本号
+    publishVersion = '1.1.0'//修改版本号
     desc = 'A library that request Permissions in an AOP manner'//描述，不重要
     website = 'https://github.com/crazyqiang/Aopermission'
 }
