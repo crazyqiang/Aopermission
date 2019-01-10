@@ -48,15 +48,15 @@ https://github.com/HujiangTechnology/gradle_plugin_android_aspectjx/blob/master/
 3、本项目中在AOP类中用到了反射，如果你的项目中在混淆后导致权限申请失败，将下面的配置加到你的混淆配置中:
 ```
 -keepclasseswithmembers class * {
-    @com.suyun.permissionlib.annotation.NeedPermission <methods>;
+    @com.ninetripods.aopermission.permissionlib.annotation.NeedPermission <methods>;
 }
 
 -keepclasseswithmembers class * {
-    @com.suyun.permissionlib.annotation.PermissionCanceled <methods>;
+    @com.ninetripods.aopermission.permissionlib.annotation.PermissionCanceled <methods>;
 }
 
 -keepclasseswithmembers class * {
-    @com.suyun.permissionlib.annotation.PermissionDenied <methods>;
+    @com.ninetripods.aopermission.permissionlib.annotation.PermissionDenied <methods>;
 }
 ```
 
