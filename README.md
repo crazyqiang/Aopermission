@@ -21,7 +21,7 @@ https://upload-images.jianshu.io/upload_images/587163-78cf7c69a1e04c66.gif?image
 apply plugin: 'android-aspectjx'
 
 dependencies {
-     compile 'com.ninetripods:aop-permission:1.0.1'
+     compile 'com.ninetripods:aop-permission:1.1.0'
      ..........其他............
 }
 
@@ -32,6 +32,8 @@ aspectjx {
 }
 
 ```
+点此查看最新版本：https://jcenter.bintray.com/com/ninetripods/aop-permission/
+
 2、在**根目录的build.gradle**里面配置如下：
 ```
 dependencies {
