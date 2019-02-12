@@ -28,7 +28,7 @@ dependencies {
 //可选配置：include和exclude的规则是去匹配包名，如果找到匹配的包名，则整个jar(即整个库)生效，
 //这样做主要是考虑到性能的问题。
 aspectjx {
-    include 'com.ninetripods'
+    include 'com.ninetripods','使用注解所在的包名'
 }
 
 ```
