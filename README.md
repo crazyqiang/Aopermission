@@ -1,13 +1,3 @@
-## 更新日志
-#### 2019-06-13
-```
-1、jcenter升级到1.2.0
-2、修改8.0系统上透明activity引起的bug
-3、targetSDK升级到28 
-4、支持在util类中的非静态方法中申请权限(方法中的第一个参数传入context，如果参数为空，默认使用的是application)
-```
- 
-
 # Aopermission
 #### AOP方式封装的6.0运行时申请权限的库—A library that request Permissions in an AOP manner.
 
@@ -18,6 +8,16 @@ https://upload-images.jianshu.io/upload_images/587163-78cf7c69a1e04c66.gif?image
 
 ![downloadQR.png](https://upload-images.jianshu.io/upload_images/587163-406bfe5d806d0b63.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 扫描二维码或[点此下载APK](https://www.pgyer.com/6ThQ)：
+
+
+## 更新日志
+#### 2019-06-13
+```
+1、jcenter升级到1.2.0
+2、修改8.0系统上透明activity引起的bug
+3、targetSDK升级到28 
+4、支持在util类中的非静态方法中申请权限(方法中的第一个参数传入context，如果参数为空，默认使用的是application)
+```
 
 # UML Sequence Chart(UML时序图)
 
