@@ -18,7 +18,6 @@ import com.ninetripods.aopermission.permissionlib.bean.CancelBean;
 import com.ninetripods.aopermission.permissionlib.bean.DenyBean;
 import com.ninetripods.aopermission.permissionlib.util.SettingUtil;
 
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -85,8 +84,6 @@ public class MainActivity extends AppCompatActivity {
     @PermissionDenied
     public void dealPermission(DenyBean bean) {
         if (bean == null) return;
-        Toast.makeText(this, "requestCode:" + bean.getRequestCode()
-                + ",Permissions: " + Arrays.toString(bean.getDenyList().toArray()), Toast.LENGTH_SHORT).show();
         List<String> denyList = bean.getDenyList();
         switch (bean.getRequestCode()) {
             case 10:
@@ -151,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
      */
     @PermissionCanceled
     public void dealCancelPermission(CancelBean bean) {
-        Toast.makeText(this, "requestCode:" + bean.getRequestCode(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "权限申请被取消，请求码 :" + bean.getRequestCode(), Toast.LENGTH_SHORT).show();
     }
 
     /**
@@ -164,4 +161,13 @@ public class MainActivity extends AppCompatActivity {
         startService(intent);
     }
 
+    /**
+     * 在util类中的非静态方法中申请
+     *
+     * @param view
+     */
+    public void requestByUtil(View view) {
+        RequestPermissionByUtil util = new RequestPermissionByUtil();
+        util.requestPermission(this);
+    }
 }

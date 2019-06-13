@@ -2,15 +2,15 @@ apply plugin: 'com.android.application'
 apply plugin: 'android-aspectjx'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "26.0.3"
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
 
     defaultConfig {
         applicationId "com.ninetripods.aopermission"
         minSdkVersion 15
-        targetSdkVersion 23
-        versionCode 1100
-        versionName "1.1"
+        targetSdkVersion 28
+        versionCode 1200
+        versionName "1.2.0"
     }
     buildTypes {
         release {
@@ -33,7 +33,7 @@ aspectjx {
 dependencies {
     compile project(':permissionlib')
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support:appcompat-v7:28.0.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.android.support:support-v4:25.1.0'
+    compile 'com.android.support:support-v4:28.0.0'
 }

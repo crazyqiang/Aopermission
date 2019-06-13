@@ -1,5 +1,7 @@
 package com.ninetripods.aopermission.permissionlib.bean;
 
+import android.content.Context;
+
 import java.util.List;
 
 /**
@@ -11,6 +13,15 @@ public class DenyBean {
 
     private int requestCode;
     private List<String> denyList;
+    private Context context;
+
+    public Context getContext() {
+        return context;
+    }
+
+    public void setContext(Context context) {
+        this.context = context;
+    }
 
     public int getRequestCode() {
         return requestCode;

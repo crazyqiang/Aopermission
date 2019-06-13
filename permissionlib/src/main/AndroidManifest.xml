@@ -5,7 +5,6 @@
     <application>
         <activity
             android:name="com.ninetripods.aopermission.permissionlib.PermissionRequestActivity"
-            android:screenOrientation="portrait"
             android:theme="@style/translucent" />
     </application>
 </manifest>

@@ -3,6 +3,8 @@ package com.ninetripods.aopermission.permissionlib;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -48,6 +50,9 @@ public class PermissionRequestActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request_permission);
+        if (Build.VERSION.SDK_INT != Build.VERSION_CODES.O) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             permissions = bundle.getStringArray(PERMISSION_KEY);
@@ -72,7 +77,7 @@ public class PermissionRequestActivity extends Activity {
             //all permissions granted
             if (permissionListener != null) {
                 permissionListener.PermissionGranted();
-                permissionListener=null;
+                permissionListener = null;
             }
             finish();
             overridePendingTransition(0, 0);
@@ -111,7 +116,7 @@ public class PermissionRequestActivity extends Activity {
             }
 
         }
-        permissionListener=null;
+        permissionListener = null;
         finish();
         overridePendingTransition(0, 0);
     }

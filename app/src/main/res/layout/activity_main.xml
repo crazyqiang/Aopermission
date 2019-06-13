@@ -51,6 +51,22 @@
         android:onClick="startPermissionService"
         android:text="启动Service" />
 
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="在Util类中申请权限"
+        android:textSize="18dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginTop="20dp"
+        android:onClick="requestByUtil"
+        android:text="通过util申请权限" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
