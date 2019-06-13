@@ -1,12 +1,11 @@
 ## 更新日志
-- 2019/06/13
+#### 2019-06-13
+```
 1、修改8.0系统上透明activity引起的bug
 2、targetSDK升级到28 
 3、支持在util类中的非静态方法中申请权限(方法中的第一个参数传入context，如果参数为空，默认使用的是application)
-
+```
  
-
-
 
 # Aopermission
 #### AOP方式封装的6.0运行时申请权限的库—A library that request Permissions in an AOP manner.
